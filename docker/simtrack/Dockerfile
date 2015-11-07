@@ -1,21 +1,8 @@
-FROM cogrob/simtrack:nvidia
+FROM cogrob/simtrack:cuda
 
-# WORKDIR /root
-#
-# # install dependencies
-# RUN apt-get install -y \
-#   libboost-all-dev \
-#   libglew-dev \
-#   freeglut3-dev \
-#   liblapack3 \
-#   libopencv-dev
-#
-# # clone object_tracking_2d_ros project
-# RUN mkdir -p catkin_ws/src \
-#   && cd catkin_ws/src \
-#   && git clone https://github.com/CognitiveRobotics/object_tracking_2d_ros.git \
-#   && cd object_tracking_2d_ros
-#
-# # build omnimapper ros wrapper
-# ADD build.sh catkin_ws/src/apriltags/build.sh
-# RUN ./catkin_ws/src/apriltags/build.sh
+RUN apt-get update
+
+# build simtrack
+ADD build.sh /root/build.sh
+RUN cd /root \
+  && bash build.sh

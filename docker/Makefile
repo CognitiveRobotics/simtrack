@@ -14,7 +14,7 @@ build:
 	@docker build --tag=cogrob/simtrack:dev dev/.
 	@docker build --tag=cogrob/simtrack:gui gui/.
 	@docker build --tag=cogrob/simtrack:cuda cuda/.
-	# @docker build --tag=cogrob/simtrack:ebt simtrack/.
+	@docker build --tag=cogrob/simtrack:simtrack simtrack/.
 
 # pull:
 # 	@docker pull cogrob/simtrack:dep
